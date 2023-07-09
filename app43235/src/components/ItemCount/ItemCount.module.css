@@ -1,0 +1,41 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.number {
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.addToCartButton {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.addToCartButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

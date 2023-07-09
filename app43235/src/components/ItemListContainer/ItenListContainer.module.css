@@ -1,0 +1,9 @@
+.ItemListContainer {
+    padding: 20px;
+}
+
+.ListTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
