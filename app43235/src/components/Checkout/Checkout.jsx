@@ -2,6 +2,8 @@ import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
 import {db} from "../../services/firebase/firebaseConfig"
+import { Timestamp } from "firebase/firestore";
+
 
 const Checkout = ()=>{
     const [loading, setLoading] = useState(false)

@@ -37,7 +37,7 @@ const CheckoutForm = ({onConfirm}) => {
                 <label>
                     Email
                     <input
-                        className={styles.imput}
+                        className={styles.input}
                         type="text"
                         value={email}
                         onChange={({target})=> setEmail(target.value)}

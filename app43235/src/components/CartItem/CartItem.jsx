@@ -7,7 +7,7 @@ const CartItem = ({ id, name, img, price, quantity}) => {
 
     return (
         <div>
-            <h1>Cart Item</h1>
+            <h1>Producto Agregado</h1>
             <img src={img} style={{width: '150px'}}/>
             <h2>{name}</h2>
             <h4>{price}</h4>
@@ -16,6 +16,6 @@ const CartItem = ({ id, name, img, price, quantity}) => {
             <button onClick={() => removeItem(id)}>Quitar del carrito</button>
         </div>
     )
-}
+};
 
 export default CartItem
