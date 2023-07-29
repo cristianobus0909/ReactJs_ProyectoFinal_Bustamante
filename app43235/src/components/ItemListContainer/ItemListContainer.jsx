@@ -17,6 +17,7 @@ const ItemListContainer =({greeting})=>{
         setLoading(true)
         
         const collectionRef = !categoryId ? collection(db, 'products') : query(collection(db, 'products'), where('category', '==', categoryId)) 
+        
         getDocs(collectionRef)
             .then(response=> {
                 const productsAdapted = response.docs.map(doc=> {

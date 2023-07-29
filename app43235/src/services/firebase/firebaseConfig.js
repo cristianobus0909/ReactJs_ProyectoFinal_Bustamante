@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB1eVAPHgFwTHb3vb4wWMVdjwyQaaSehy8",
-    authDomain: "e-commerce-75afe.firebaseapp.com",
-    projectId: "e-commerce-75afe",
-    storageBucket: "e-commerce-75afe.appspot.com",
-    messagingSenderId: "1079403875041",
-    appId: "1:1079403875041:web:dcf9640fc61ed346ad45a0",
+    apiKey: import.meta.env.VITE_apiKey,
+    authDomain: import.meta.env.VITE_authDomain,
+    projectId: import.meta.env.VITE_projectId,
+    storageBucket: import.meta.env.VITE_storageBucket,
+    messagingSenderId: import.meta.env.VITE_messagingSenderId,
+    appId: import.meta.env.VITE_appId,
 };
 
 

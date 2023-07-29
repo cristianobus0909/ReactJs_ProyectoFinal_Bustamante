@@ -2,13 +2,19 @@ import { useContext, useState } from "react"
 import { CartContext } from "../../context/CartContext"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
 import {db} from "../../services/firebase/firebaseConfig"
-import { Timestamp } from "firebase/firestore";
+import { Timestamp, collection, query, where, documentId, getDocs, writeBatch, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { useNotification } from "../../notification/NotificationService";
 
 
 const Checkout = ()=>{
     const [loading, setLoading] = useState(false)
-    const [orderId, setOrderId] = useState("")
+    const [orderId, setOrderId] = useState('')
+    const navigate = useNavigate()
+    const { setNotification } = useNotification()
     const[cart, total, clearCart] = useContext(CartContext)
+
+
     const createOrder = async({name, phone, email}) =>{
         setLoading(true)
         try {
@@ -26,6 +32,9 @@ const Checkout = ()=>{
             const productsRef = collection(db, 'products')
             const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
             const {docs} = productsAddedFromFirestore
+            setNotification('success', 'La orden fue generada correctamente, el id es: ' + docs )
+            clearCart()
+            navigate('/')
 
             docs.forEach(doc=>{
                 const dataDoc = doc.data()
@@ -49,7 +58,7 @@ const Checkout = ()=>{
                 console.error('Hay productos que estan fuera de stock')
             }
         } catch(error){
-            console.log(error)
+            setNotification('error', 'hubo un error en la generacion de la orden')
         }finally{
             setLoading(false)
         }
@@ -65,7 +74,7 @@ const Checkout = ()=>{
     return(
         <div>
             <h1>Checkout</h1>
-            <CheckoutForm onConfirm= {createOrder}/>
+            <CheckoutForm onConfirm = {createOrder}/>
         </div>
 
     ) 
